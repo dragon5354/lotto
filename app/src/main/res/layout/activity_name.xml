@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editText"/>
 
     <Button
-        android:id="@+id/BackButton"
+        android:id="@+id/backButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
