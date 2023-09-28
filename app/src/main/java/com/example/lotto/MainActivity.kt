@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             // intent의 결과 데이터를 전달. 리스트를 전달하기 때문에 저런 형식으로 쓴다.
             intent.putIntegerArrayListExtra("result", ArrayList(getRandomLottoNumbers()))
 
-            //intent를 만들고 startActivity로 실행
+            // intent를 만들고 startActivity로 실행
             startActivity(intent)
         }
 
@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * 랜덤함수에 사용되는 부분
+     * 랜덤으로 번호 생성에 사용되는 부분
+     * 랜덤함수 + 반복문 or 랜덤함수 + 셔플
      */
     // 랜덤으로 1~45 번호중 하나의 번호를 생성하는 함수
     fun getRandomLottoNumber() : Int {
