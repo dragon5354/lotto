@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.491"
-        app:srcCompat="@drawable/name" />
+        android:src="@drawable/name" />
 
     <!-- touch target size too small error 때문에
         android:minHeight="48dp" 추가함 -->

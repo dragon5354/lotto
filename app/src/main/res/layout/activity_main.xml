@@ -49,7 +49,8 @@
             <ImageView
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                app:srcCompat="@drawable/lottery" />
+                android:src="@drawable/lottery"
+                />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -95,7 +96,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:padding="16dp"
-                app:srcCompat="@drawable/constellation" />
+                android:src="@drawable/constellation" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -141,7 +142,7 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:padding="16dp"
-                app:srcCompat="@drawable/name" />
+                android:src="@drawable/name" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
