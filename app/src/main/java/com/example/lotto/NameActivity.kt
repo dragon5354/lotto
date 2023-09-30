@@ -31,7 +31,7 @@ class NameActivity : AppCompatActivity() {
             val intent = Intent(this,ResultActivity::class.java)
 
             // intent의 결과 데이터를 전달. 리스트를 전달하고, 해시코드로 생성한 로또 번호
-            intent.putIntegerArrayListExtra("result", ArrayList(getLottoNumbersFromHash(nameActivityBinding.editText.text.toString())))
+            intent.putIntegerArrayListExtra("result", ArrayList(LottoNumberMaker.getLottoNumbersFromHash(nameActivityBinding.editText.text.toString())))
 
             // 입력받은 이름을 추가로 전달
             intent.putExtra("name",nameActivityBinding.editText.text.toString())
@@ -44,28 +44,5 @@ class NameActivity : AppCompatActivity() {
         nameActivityBinding.backButton.setOnClickListener {
             finish()
         }
-    }
-    /**
-     * 이름으로 번호 생성에 사용되는 부분
-     * 입력받은 이름을 해시코드로 변환해서 로또 번호로 바꿈
-     */
-    fun getLottoNumbersFromHash(name : String) : MutableList<Int> {
-        // 1 ~ 45 번호 저장할 리스트 생성
-        val list = mutableListOf<Int>()
-
-        // 1 ~ 45 for 리스트 생성
-        for(number in 1..45) {
-            list.add(number)
-        }
-
-        // 이름만으로 하면 매번 같은 번호가 나오기 때문에, 날짜의 시간값을 추가해서 변동시켜줌(매일 로또번호가 바뀜)
-        val targetString = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(Date()) + name
-
-        // 셔플, 랜덤함수, 입력받은 이름 해시코드 변환
-        list.shuffle(Random(targetString.hashCode().toLong()))
-
-        // 결과 반환(6개)
-        return list.subList(0, 6)
-
     }
 }
