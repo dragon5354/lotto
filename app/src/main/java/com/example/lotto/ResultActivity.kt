@@ -15,31 +15,40 @@ class ResultActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // 바인딩
-        val resultActivityBinding = ActivityResultBinding.inflate(layoutInflater)
-        val bView = resultActivityBinding.root
+        val reAB = ActivityResultBinding.inflate(layoutInflater)
+        val bView = reAB.root
 
         super.onCreate(savedInstanceState)
         setContentView(bView)
 
-        // MainActivity에서 전달받은 결과 배열을 가져옴
+        // 전달받은 결과 배열을 가져옴
         val result = intent.getIntegerArrayListExtra("result")
 
         // 전달받은 이름을 가져옴
         val name = intent.getStringExtra("name")
 
+        // 전달받은 별자리를 가져옴
+        val constellation = intent.getStringExtra("constellation")
+
         // 결과화면 기본 텍스트
-        resultActivityBinding.resultLabel.text = "랜덤으로 생성된\n로또번호입니다."
+        reAB.resultLabel.text = "랜덤으로 생성된\n로또번호입니다."
 
         // name이 전달된 경우 결과화면의 텍스트를 변경
         if(!TextUtils.isEmpty(name)) {
-            resultActivityBinding.resultLabel.text =
+            reAB.resultLabel.text =
                 "${name}님의 ${SimpleDateFormat("yyyy년 MM월 dd일").format(Date())}\n로또 번호입니다."
+        }
+
+        // 별자리가 전달된 경우 결과화면의 텍스트를 변경
+        if(!TextUtils.isEmpty(constellation)) {
+            reAB.resultLabel.text =
+                "${constellation}의 ${SimpleDateFormat("yyyy년 MM월 dd일").format(Date())}\n로또 번호입니다."
         }
 
         // 전달받은 결과가 있는 경우에만 실행
         result?.let {
             // 결과에 맞게 공 이미지 업데이트. 전달을 위해 정렬도 넣는다.
-            updateLottoBallImage(result.sortedBy { it }, resultActivityBinding)
+            updateLottoBallImage(result.sortedBy { it }, reAB)
         }
     }
 
