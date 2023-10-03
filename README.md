@@ -1,7 +1,7 @@
 # lotto
 
-사용 언어 : Kotlin
-목적 : 로또 번호 생성 앱
+사용 언어 : Kotlin<br/>
+목적 : 로또 번호 생성 앱<br/>
 개인 연습용 사이드 프로젝트입니다.
 
 ## References
